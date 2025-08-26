@@ -5,7 +5,7 @@ Neural networks were created as a way to teach a machine to approximate complex 
 
 Weights are adjusted automatically with backpropagation: the network compares its prediction with the correct value and step by step adjusts parameters to reduce the loss.
 
-Language needs one more step - turning text into numbers. Tokenization does this: it splits text into tokens, most often subwords (BPE, WordPiece, Unigram - algorithms that split words into parts like prefix root suffix ending; for example, “програм‑уванн‑я”). This makes the system robust to rare or new words. Then tokens are projected into high‑dimensional vectors (embeddings). The semantic intuition is simple: words close in meaning have close vectors; the geometry encodes similarity and associations.
+Language needs one more step - turning text into numbers. Tokenization does this: it splits text into tokens, most often subwords. This makes the system robust to rare or new words. Then tokens are projected into high‑dimensional vectors (embeddings). The semantic intuition is simple: words close in meaning have close vectors; the geometry encodes similarity and associations.
 
 For a long time, recurrent networks (RNN) and their variants LSTM/GRU dominated. They read the sequence token by token, keeping a hidden state as “memory.” In practice this often broke on long‑range dependencies (vanishing or exploding gradients), and more importantly, computation was sequential and scaled poorly on modern hardware. This is where transformers offered a new path.
 

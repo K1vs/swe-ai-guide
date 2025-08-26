@@ -83,7 +83,7 @@ Conclusion: DDD reduces complexity and gives AI a high‑quality, bounded contex
 
 ### Synergy with TDD
 
-- **Cheaper tests**: writing tests is the main pain of TDD. AI radically lowers the cost of creating and maintaining tests.
+- **Cheaper tests**: the time spent on writing tests is the main pain of TDD. AI radically lowers the cost of creating and maintaining tests.
 - **Tests as a specification for LLM**: every test is a precise expectation. The agent “understands” what is wanted and has an explicit success criterion.
 
 Together: TDD makes requirements clearer for AI, and AI removes the cost barrier for tests.

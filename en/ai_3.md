@@ -10,14 +10,14 @@ The basic interaction looks like this:
 Input to an LLM is called a “prompt,” and the techniques to build effective prompts are “prompt engineering.” These appeared in response to the high sensitivity of models to the wording and structure of the request.
 
 Here is a list of practically effective prompting methods today that I regularly use:
-1. Give the AI a role. Copilot already does this, setting a developer role, but you can clarify it with language, framework, and extra technologies. It is very important to state that it must create production‑ready code (with error handling, logging, documentation).
+1. Give the AI a role. Copilot (or similar tool) already does this, setting a developer role, but you can clarify it with language, framework, and extra technologies. It is very important to state that it must create production‑ready code (with error handling, logging, documentation).
 
    Examples of roles:
    - “You are a senior .NET developer with 10+ years of experience. Write production‑ready code with error handling and logging.”
    - “You are a QA engineer. Create a test plan for this API, including edge cases.”
    - “You are a security expert. Analyze this code for vulnerabilities and propose improvements.”
 
-2. Explicitly ask to create a plan before doing the task. If needed, split it into sub‑steps; for each step, state the reason and consequence, check causal links, make sure the plan can complete the task and will not cause side effects.
+2. Explicitly ask to create a plan before doing the task: "Create a plan, break it down into sub-points if necessary; for each point, specify the cause and effect, verify the cause-and-effect relationships, and make sure the plan can accomplish the task without causing side effects."
 
 3. For complex tasks first ask only for the plan and tell it to stop. If the plan is poor, stop and describe the problems. For large tasks ask to save the global plan into a separate .md file and mark completed steps - this helps refresh context without losing progress and make intermediate commits.
 
@@ -72,7 +72,6 @@ However, the skill of building good prompts remains useful in complex, non‑tri
 - [Prompt Engineering](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) - L. Weng, 2023.
 - [Chain‑of‑Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903) - J. Wei et al., 2022.
 - [Self‑Consistency Improves Chain of Thought Reasoning in Large Language Models](https://arxiv.org/abs/2203.11171) - X. Wang et al., 2022.
-- [Least‑to‑Most Prompting Enables Complex Reasoning in Large Language Models](https://arxiv.org/abs/2210.14216) - Z. Zhou et al., 2022.
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) - S. Yao et al., 2022.
 - [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/abs/2305.10601) - S. Yao et al., 2023.
 - [Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning](https://arxiv.org/abs/2211.12588) - X. Lei et al., 2022.

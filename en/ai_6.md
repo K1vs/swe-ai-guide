@@ -60,7 +60,7 @@ Standardizing integrations raises the risk of wrong or excessive access. Key sec
 
 MCP removes the barrier “one tool - one extension - one agent” and moves integrations to a shared bus. The agent as a client opens tools in a unified way, and tools as servers publish reusable capabilities.
 
-Pipes are a good fit for local scenarios with minimal latency, and HTTP(S) works for remote and team scenarios. Remote MCP makes integrations a shared team resource.
+Pipes are a good fit for local scenarios with minimal latency, and HTTP(S) works for remote and team scenarios, remote MCP makes integrations a shared team resource.
 
 Practical wins include fast task‑context building (Jira/Confluence), automatic access to contracts (GitHub), and faster layout work (Figma).
 

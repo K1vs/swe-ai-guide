@@ -18,7 +18,7 @@ Fully autonomous agents for complex development (multi‑module systems, non‑f
 So the focus is on limited‑autonomy agents that work synchronously and “next to” the engineer.
 
 #### A typical workflow in agent mode (Cursor / Copilot):
-1) Define the task: select code or describe changes in natural language (e.g., “migrate library X from v4 to v5; update imports and tests”).
+1) Define the task: select code and describe desired changes in natural language (e.g., “migrate library X from v4 to v5; update imports and tests”).
 2) Build a plan and choose files: the agent gathers context (imports, config, dependencies) and proposes a change plan.
 3) Propose diffs: it shows a series of edits per file; you accept or edit parts.
 4) Local checks: runs linters/tests/build; collects logs and refines the plan on failures.
@@ -47,10 +47,16 @@ GitHub Copilot
   - Less control over model choice; harder to optimize for specific tasks/cost.
   - Autocomplete quality depends more on the active file and sometimes looks more general.
 
-Console agents (e.g., Claude Code) - when it is convenient:
-- Editor‑agnostic: you work in terminal, tmux/SSH, remote environments/containers without a heavy IDE.
-- Scripting and CI: CLI/API lets you run tasks non‑interactively, store artifacts (logs, reports), output diffs/patches to files, and return exit codes. It is convenient for GitHub Actions/GitLab CI to run mass lint/fix, generate tests/docs, and audits with pipeline fail on violations.
-- Scale and overview: run repository‑wide tasks (mass searches/refactors, dependency inventory, deprecated API search). Form summary reports (HTML/Markdown/JSON), return diffs as `.patch` for review. Works the same locally, in CI, and on remote machines.
+#### Console Agents (e.g., Claude Code)
+
+- Pros
+  - IDE-agnostic: complete independence from the development environment - just open a terminal in your favorite IDE and work with the agent.  
+  - Remote execution: the CLI/API allows running tasks non-interactively, storing artifacts (logs, reports), outputting diffs/patches to files, and returning exit codes.  
+    This is convenient for embedding into GitHub Actions/GitLab CI for bulk lint/fix, test/doc generation, and audits with pipeline failure on violations.  
+
+- Cons
+  - No IDE integration: interaction is always through the CLI, which isn’t optimal for all tasks.  
+  - Requires an alternative source of Tab completion, which isn’t always available.  
 
 #### Non‑autonomous scenarios - autocomplete/inline chat in the IDE - are sometimes better than agent mode:
 - Small local changes and the “hot” edit loop when the cost of plan/diffs exceeds the benefit.
@@ -82,9 +88,11 @@ The lower bound of truth is this: agents already save hours on routine, but with
 - Reflexion (Shinn et al., 2023): “Language Agents with Verbal Reinforcement Learning” (`https://arxiv.org/abs/2303.11366`)
 - LangGraph (LangChain, 2024): graph-based agents and orchestration (`https://langchain-ai.github.io/langgraph/`)
 - LangChain - Agents: concepts and examples (`https://python.langchain.com/docs/concepts/agents/`)
-- LlamaIndex - Agents: overview and guides (`https://docs.llamaindex.ai/en/stable/module_guides/agent/`)
+- LlamaIndex - Agents: overview and guides (`https://docs.llamaindex.ai/en/stable/understanding/agent/`)
 - Microsoft AutoGen: multi-agent conversations and coordination (`https://microsoft.github.io/autogen/`)
 - Anthropic Claude - Tool Use / Function Calling (`https://docs.anthropic.com/claude/docs/tool-use`)
 - OpenAI - Assistants API and tools (`https://platform.openai.com/docs/assistants/overview`)
 - AgentBench: benchmarking agents (`https://github.com/THUDM/AgentBench`)
 - SWE-bench: benchmark for software-engineering agents (`https://github.com/princeton-nlp/SWE-bench`)
+- Cursor documentation (`https://docs.cursor.com`)
+- GitHub Copilot documentation (`https://docs.github.com/en/copilot`)
