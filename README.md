@@ -34,4 +34,14 @@ This series consists of 8 articles covering AI in software development:
 7. **Development processes** - [English](en/ai_7.md) | [Українська](ukr/ai_7.md)  
    Enterprise adoption, security, tools overview, and integrating AI into team workflows
 
+## Updates
+
+- **Update on models and capabilities (Nov 2025)** - [English](en/upd_ai_1.md) | [Українська](ukr/upd_ai_1.md)  
+  Current state of models, quantitative improvements, and practical impact on development
+
+## Warnings
+
+- **Autonomous agent tools** - [English](en/warn_1.md) | [Українська](ukr/warn_1.md)  
+  Risk analysis of highly autonomous agents: accidental errors, prompt injection, legal aspects
+
 Start with the introduction: [en/ai_0.md](en/ai_0.md) or [ukr/ai_0.md](ukr/ai_0.md). Feedback and concise, opinionated notes are welcome; please avoid link-only news drops.
