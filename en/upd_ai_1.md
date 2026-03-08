@@ -26,20 +26,23 @@ A model from Google. It is not specialized for programming tasks, but has good c
 Little has changed here, but I will describe the main points again; perhaps it will be interesting for those who are choosing now.
 
 ### 1. GitHub Copilot
+
 Still lags behind the leaders in capabilities and speed. But it still leads in ease of use and adaptation to your stack, as it is present for most popular IDEs in almost full form. It works best in VS Code, but in other IDEs, the limitations and problems are insignificant. It also received its own CLI, which allows using it without an IDE. It remains the optimal choice for those who do not want to change their usual development tools. But one should not forget about the binding to GitHub and the limitations associated with it (described in the previous article).
 
 ### 2. Cursor
+
 Still leads in capabilities and speed. It has the best autocomplete, which is fast and of very high quality. And it still has certain problems and limitations for some development stacks, which depend on licensed components and extensions for VS Code. The possibilities for working with asynchronous agents have grown significantly, and there is a convenient interface for controlling them. New, more powerful models increase the range of effective application of the approach with asynchronous agents, but so far there are few tasks where this is really justified.
 
 ### 3. Windsurf
+
 Also a great option for transition if the developer uses an IDE with Windsurf plugin support. Since the developer has the opportunity to use an extension for the start, which provides basic capabilities in their usual IDE, and in parallel, if possible, without loss of productivity, master a separate Windsurf IDE (fork of VS Code, like Cursor, with the same problems). Interesting for its focus specifically on the agent approach, with minimization of manual code writing, which becomes increasingly relevant with the development of the quality and speed of models.
 
 ### 4. Claude Code from Anthropic or Codex Cli from OpenAI or Gemini CLI from Google
+
 Purely console tools tailored to the models of their vendor. They are the first to receive many interesting features, but still, on their own, they are suitable only for agent development. And banal AI autocomplete is often more optimal for many tasks. I still cannot recommend it as a main tool, but if there is an opportunity to try it as an addition to other tools, it can be useful, as the agent approach to development becomes increasingly viable.
 
 ### 5. Google Antigravity
+
 IDE based on VS Code, with great agent capabilities. A novelty from Google, suitable for development with different levels of agent autonomy. So far only a preview, but it looks very similar to Cursor in its current form both in idea and capabilities. If Google can ensure better support for plugins for VS Code, develop its own or agree with Microsoft, then this can become a very interesting option for development. For now, we are observing and playing, it is too early for real projects.
 
-
 *And finally, let's not forget that although AI is growing very well quantitatively, qualitatively it is standing still for now. Therefore, despite all the hype and marketing, do not forget about the rest of the developer's tools, and most importantly about the developer's mind and skills!.*
-

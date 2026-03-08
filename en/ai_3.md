@@ -1,8 +1,9 @@
-### 3. Basic interaction with an LLM through chat
+# 3. Basic interaction with an LLM through chat
 
 An LLM is not a thinking subject but a powerful statistical next‑token predictor. Because of this, answer quality depends much more on the wording and context of the input than in usual human communication.
 
 The basic interaction looks like this:
+
 - the user formulates a prompt (instructions, questions, examples) and sends it with the dialog context;
 - the model sequentially predicts the next tokens and forms a reply;
 - chat history accumulates context, so relevance and clarity of input are critical.
@@ -10,6 +11,7 @@ The basic interaction looks like this:
 Input to an LLM is called a “prompt,” and the techniques to build effective prompts are “prompt engineering.” These appeared in response to the high sensitivity of models to the wording and structure of the request.
 
 Here is a list of practically effective prompting methods today that I regularly use:
+
 1. Give the AI a role. Copilot (or similar tool) already does this, setting a developer role, but you can clarify it with language, framework, and extra technologies. It is very important to state that it must create production‑ready code (with error handling, logging, documentation).
 
    Examples of roles:
@@ -32,12 +34,14 @@ Here is a list of practically effective prompting methods today that I regularly
 8. To reduce hallucinations, it sometimes helps to ask for a confidence level from 1 to 10 when creating a plan. This reduces made‑up facts and gives points for extra checking.
 
 9. The best prompt structure:
-- Context (what it is about)
-- Task (what to do)
-- Notes (strategy, what to focus on, what is desired/undesired, etc.)
+
+   - Context (what it is about)
+   - Task (what to do)
+   - Notes (strategy, what to focus on, what is desired/undesired, etc.)
 
    Example:
-   ```
+
+   ```md
    **Context:** I have an ASP.NET Core Web API with authorization via JWT tokens.
    The UserService has a method GetUserById() that returns null for non‑existing users.
 
@@ -62,9 +66,7 @@ Many prompting rules that were critical for early LLMs are now either less impor
 
 However, the skill of building good prompts remains useful in complex, non‑trivial, and domain‑specific cases where you need control, reproducibility, and precision.
 
-
-
-### Sources and further reading
+## Sources and further reading
 
 - [Prompt Engineering Guide](https://www.promptingguide.ai) - DAIR‑AI, ongoing.
 - [Prompt engineering best practices](https://platform.openai.com/docs/guides/prompt-engineering) - OpenAI, guide.

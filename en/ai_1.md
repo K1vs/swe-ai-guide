@@ -1,8 +1,8 @@
-## 1. AI - tool #2 right after the developer’s mind
+# 1. AI - tool #2 right after the developer’s mind
 
 Modern AI in development is a jump beyond a “better IDE”: it adds speed, reduces routine to near zero, and raises quality by freeing human time that can be used for well‑known quality practices that never had time. Used correctly, AI does not replace thinking; it amplifies it, turning ideas into results much faster and more reliably.
 
-### Why now
+## Why now
 
 - **Accessibility**: getting started is very simple. You can proceed step by step, adding new AI use cases as needed and as you are ready. Start with tools you already use and install AI extensions for them.
 - **Context**: models can already hold enough context to complete a step of a typical decomposed task in a typical project.
@@ -111,5 +111,3 @@ The most important synergy is between the human brain and AI. LLMs generate many
 - Vaughn Vernon - "Domain‑Driven Design Distilled" (Addison‑Wesley): [informit.com](https://www.informit.com/store/domain-driven-design-distilled-9780134434421)
 - Kent Beck - "Test‑Driven Development: By Example": [informit.com](https://www.informit.com/store/test-driven-development-by-example-9780321146533)
 - Martin Fowler - "Refactoring: Improving the Design of Existing Code": [martinfowler.com](https://martinfowler.com/books/refactoring.html)
-
-

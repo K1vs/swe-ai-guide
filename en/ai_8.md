@@ -30,17 +30,17 @@ Every step below is documented — the specification is a living artifact that a
 
 ### Decomposition
 
-8. Decompose into subtasks.
-9. For each subtask — detail the business problem.
-10. For each subtask — detail the technical solution.
-11. If needed — hierarchical nesting. Depth is determined by complexity: a simple feature — a flat list, a complex system — a tree of subtasks with multiple levels.
+1. Decompose into subtasks.
+2. For each subtask — detail the business problem.
+3. For each subtask — detail the technical solution.
+4. If needed — hierarchical nesting. Depth is determined by complexity: a simple feature — a flat list, a complex system — a tree of subtasks with multiple levels.
 
 ### Validation
 
-12. Completeness check — are all scenarios covered.
-13. Consistency check — are there any conflicts between decisions.
-14. Feasibility check — does each atomic unit of the plan fit within the model's context.
-15. Improve the spec based on validation results — by yourself and with AI. Repeat until the AI stops finding issues that are significant to you. The higher the quality of the specification, the faster AI will implement the plan.
+1. Completeness check — are all scenarios covered.
+2. Consistency check — are there any conflicts between decisions.
+3. Feasibility check — does each atomic unit of the plan fit within the model's context.
+4. Improve the spec based on validation results — by yourself and with AI. Repeat until the AI stops finding issues that are significant to you. The higher the quality of the specification, the faster AI will implement the plan.
 
 If there is a technical challenge — it can be quickly PoC'd through AI as well, separately from the main solution.
 

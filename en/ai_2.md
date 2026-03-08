@@ -1,6 +1,7 @@
-## 2. Basic ideas of modern language models
+# 2. Basic ideas of modern language models
 
-### Historical context and basic concepts
+## Historical context and basic concepts
+
 Neural networks were created as a way to teach a machine to approximate complex dependencies in data. The simplest element - the perceptron - takes input features, weights them, adds a bias, and checks whether a threshold is crossed. A single perceptron gives only linear separation, but a multilayer perceptron (MLP) with nonlinearities can approximate almost any function.
 
 Weights are adjusted automatically with backpropagation: the network compares its prediction with the correct value and step by step adjusts parameters to reduce the loss.
@@ -9,7 +10,8 @@ Language needs one more step - turning text into numbers. Tokenization does this
 
 For a long time, recurrent networks (RNN) and their variants LSTM/GRU dominated. They read the sequence token by token, keeping a hidden state as “memory.” In practice this often broke on long‑range dependencies (vanishing or exploding gradients), and more importantly, computation was sequential and scaled poorly on modern hardware. This is where transformers offered a new path.
 
-### Fundamental principles of transformers
+## Fundamental principles of transformers
+
 First of all, a transformer is an autocompletion model: given a sequence of tokens, it estimates the probability distribution of the next token and chooses the most likely one. Then this predicted token is appended to the sequence, and the process repeats step by step until we get a complete result. How does it guess the next token? The key is the attention mechanism, which lets the model focus on relevant parts of the context.
 
 Before each new step, every word in the sentence looks at all the others and decides whom to consider and by how much. The word formulates its “question”: what do I need right now? This is the query (Q). Each other word has a “label” that says what it is about - the key (K). And it has “content” it can contribute - the value (V). Attention computes “how much” weights between the current word’s question and the labels of the others, and then mixes their content according to these weights. The result is a new representation of the word that has taken relevant context into account.
@@ -34,16 +36,17 @@ The key advantage of the transformer is full parallelization over tokens during 
 
 The cost of self‑attention grows quadratically with context length: twice the window is roughly four times the compute and memory. Therefore, extending context needs engineering: relative positional encodings, caching/buffering, and sparse or local attention. In applied systems this is complemented by external knowledge search (RAG - Retrieval‑Augmented Generation) and caching so we do not push everything into the model at once.
 
-### Limitations and future directions
+## Limitations and future directions
+
 Despite breakthrough abilities with language, LLMs have systemic limits. They are prone to “hallucinations” - confidently generating falsehoods in zones of uncertainty; they are sensitive to prompt wording; they lack built‑in fact‑checking. The most noticeable limitation is a lack of true long‑term memory: anything beyond the context window is lost, so the model does not “remember” the user or a long process in a strict sense. Cost and energy, bias, safety and privacy, and limited planning and reasoning without tools also matter.
 
 Promising directions include integration of external memory and knowledge indexes (RAG, personal stores), new attention schemes with lower complexity, compression and recurrent memory over long ranges, more reliable validation of statements (source checking, self‑assessment of confidence). Critically important is post‑deploy learning: safe loops for continual learning, online updates of knowledge, and guided RLHF in production. Integration with tools and agents is also growing actively, allowing the model to act in the world and not only generate text.
 
-### Summary
+## Summary
+
 Transformer LLMs are a technological breakthrough on the level of the first computers or the Internet. They learned to see long‑range dependencies, scale across clusters, and work with language in ways that seemed impossible not long ago. But this is likely not the last step on the path to real AGI (artificial general intelligence). To move from “large autocompletion” to broad reasoning ability, we need true long‑term memory, safe post‑deploy learning, and new inductive biases for reliable planning and reasoning. The breakthrough has already happened; now it is time for the next ones.
 
-
-### Sources and further reading
+## Sources and further reading
 
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - A. Vaswani et al., 2017.
 - [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) - J. Alammar, 2018.
@@ -57,5 +60,3 @@ Transformer LLMs are a technological breakthrough on the level of the first comp
 - [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) - L. Ouyang et al., 2022.
 - [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) - Y. Bai et al., 2022.
 - [3Blue1Brown: Neural network](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - 3Blue1Brown video series about neural networks
-
-

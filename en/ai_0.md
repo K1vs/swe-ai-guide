@@ -19,5 +19,3 @@ The goal of this series is to give a realistic picture of the capabilities and w
 7. Deep AI adoption in the development process is a complex path that needs legal and technical decisions. At the same time, you can start using AI in a basic form and get most of the benefits quickly and simply. Most software development companies have an AI usage policy that you must read. Its main goal is to prevent data leaks through AI services, which is possible when using non‑corporate or personal accounts. For your personal open‑source projects, you can use any AI tool from a trusted vendor with any pricing plan, including free.
 
 Details for each point will be covered in later posts. Please respond to this post if you want to help expand this series of publications. I will appreciate any wishes, notes, and suggestions. What's described here is just my personal opinion, though backed by other sources, so discussions in search of truth are welcome. The only request is to not post bare links to AI news without your own conclusion, since there are too many, and their reliability is very low.
-
-

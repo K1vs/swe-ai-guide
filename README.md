@@ -3,12 +3,13 @@
 Short, practical notes on using AI in software development.
 
 ## Why this series
+
 - **Cut through hype**: Marketing overpromises; reality sits between “AI does nothing” and “AI does everything.”
 - **Practical focus**: Real-world usage, not vendor slogans.
 
 ## Series Overview
 
-This series consists of 8 articles covering AI in software development:
+This series consists of 9 articles covering AI in software development:
 
 0. **Introduction** - [English](en/ai_0.md) | [Українська](ukr/ai_0.md)  
    Current state of AI in development, why it works, and adoption strategies
@@ -33,6 +34,9 @@ This series consists of 8 articles covering AI in software development:
 
 7. **Development processes** - [English](en/ai_7.md) | [Українська](ukr/ai_7.md)  
    Enterprise adoption, security, tools overview, and integrating AI into team workflows
+
+8. **Specification Driven Development** - [English](en/ai_8.md) | [Українська](ukr/ai_8.md)  
+   Building living specifications, decomposing work for AI, and keeping implementation within model context
 
 ## Updates
 

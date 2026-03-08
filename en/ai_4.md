@@ -1,10 +1,10 @@
-### 4. From chat to agents: from miracles to practice
+# 4. From chat to agents: from miracles to practice
 
 Although the time of miracles is over, the time of practical use has begun. In a few leaps, LLMs jumped into the zone of high practical usefulness and keep improving steadily. But for real results, a simple chat is usually not enough.
 
 There are fundamental limits that are far from fully solved: long‑term memory and context size. This is not only about compute resources but also mathematical complexity. Attention scales poorly, information gets diluted, and “context routing” (picking relevant information from a lot of data) becomes critical. The allowed context size is a compromise for each model. Simply increasing the window does not remove the problem; it only helps the model “not fall over.” Answer quality and speed degrade, cost grows, and errors accumulate.
 
-#### Current fundamental limitations
+## Current fundamental limitations
 
 - **Context length and attention complexity**: the basic attention mechanism has quadratic complexity in sequence length (O(n^2)). Even with optimizations, throughput and latency get worse as the window grows. Extending context is a compromise: the model “does not crash,” but reasoning quality, stability, and speed degrade, and inference cost grows disproportionately.
 - **Information dilution and relevance**: in a large window, relevant fragments are lost in noise. The model is prone to positional and recency biases (over‑weighting last or first information), overvalues the last hints and undervalues early ones. So selection mechanisms are needed - context routing and knowledge retrieval - but they have their own errors (false positives/negatives - may pick the wrong things or miss the important ones).
@@ -13,7 +13,7 @@ There are fundamental limits that are far from fully solved: long‑term memory 
 - **Reproducibility and sensitivity to context**: the stochastic nature of sampling and high sensitivity to wording lead to variable answers. Small changes in order or form of facts yield different conclusions; full determinization often reduces quality (mode collapse).
 - **Cost and latency**: long contexts and large models need significant compute (memory, bandwidth, time). This limits interactive scenarios and production scale, forcing trade‑offs among quality, speed, and price.
 
-#### Using chat only exposes common difficulties:
+## Using chat only exposes common difficulties
 
 - **Establishing context**: it is hard to load large material in a structured way, keep it up‑to‑date, and relevant.
 - **High prompting demands**: you must craft precise instructions, build chains of hints, and control style and output format.
@@ -28,6 +28,7 @@ Key properties of an agent: task decomposition, use of tools, iterative checking
 The agent’s goal is not “generate an answer to a prompt,” but to organize execution of a process with constraints, acceptance criteria, and checks.
 
 Here is an example in programming where an agent is much stronger than chat: migrating code to a new framework version in a monorepo. The agent:
+
 1) scans the repo and builds a migration plan;
 2) finds locations where APIs change;
 3) makes local edits in batches, runs tests and linters;
@@ -41,9 +42,7 @@ The key strength of the agent here is in controlling tools, memory, and feedback
 
 I will cover agents in more detail in the next post.
 
-
-
-#### Further reading
+## Further reading
 
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP (2020)](https://arxiv.org/abs/2005.11401) - the foundational RAG paper combining retrieval with generation.
 - [A Survey on Retrieval-Augmented Generation (2023)](https://arxiv.org/abs/2312.10997) - survey of RAG variants, indexing, knowledge refresh, and evaluation.
