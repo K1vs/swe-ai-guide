@@ -1,5 +1,9 @@
 # 3. Basic interaction with an LLM through chat
 
+_This article was updated for spring 2026. Updates are marked with italic notes._
+
+_Important: as models and agents improved, a large part of the prompting techniques described below is now either built into modern agents or less critical than before. Today the main skills are controlling context size and context quality, decomposing tasks correctly, and working with agent tools. Still, understanding the basic principles of prompting remains useful for non-trivial and domain-specific cases._
+
 An LLM is not a thinking subject but a powerful statistical next‑token predictor. Because of this, answer quality depends much more on the wording and context of the input than in usual human communication.
 
 The basic interaction looks like this:
@@ -19,11 +23,19 @@ Here is a list of practically effective prompting methods today that I regularly
    - “You are a QA engineer. Create a test plan for this API, including edge cases.”
    - “You are a security expert. Analyze this code for vulnerabilities and propose improvements.”
 
+   _Update as of spring 2026:_ this is often better done through custom agents rather than directly in every chat. This matters especially when you try to override a role: if the agent's system prompt already fixes one role and you manually set another, the conflict can make the result worse instead of better.
+
 2. Explicitly ask to create a plan before doing the task: "Create a plan, break it down into sub-points if necessary; for each point, specify the cause and effect, verify the cause-and-effect relationships, and make sure the plan can accomplish the task without causing side effects."
+
+   _Update as of spring 2026:_ most agents already have a built-in planning mode, and it is usually better to use that instead of manually repeating the same logic in every prompt.
 
 3. For complex tasks first ask only for the plan and tell it to stop. If the plan is poor, stop and describe the problems. For large tasks ask to save the global plan into a separate .md file and mark completed steps - this helps refresh context without losing progress and make intermediate commits.
 
+   _Update as of spring 2026:_ same as in point 2, modern agents support this through a built-in plan mode, so manual prompting of this behavior is needed less often.
+
 4. If the task meets a large codebase, ask to explore the seam line, decide whether refactoring is needed, and if yes, add the needed steps to the start of the plan.
+
+   _Update as of spring 2026:_ modern agents often explore code context automatically while planning, so this technique became less critical for everyday work, though it is still useful for hard refactorings.
 
 5. When designing solutions, it can help to generate alternative plan branches, compare them, criticize them, choose the best, discard dead ends, and go back when needed.
 
@@ -32,6 +44,8 @@ Here is a list of practically effective prompting methods today that I regularly
 7. Evaluate solutions by criteria: maintainability, scalability, reusability, security, performance, and so on. Not all at once - pick 3–4 most important for the current task. You can also set priorities.
 
 8. To reduce hallucinations, it sometimes helps to ask for a confidence level from 1 to 10 when creating a plan. This reduces made‑up facts and gives points for extra checking.
+
+   _Update as of spring 2026:_ modern models hallucinate much less often when the context is good, and a numeric "confidence level" can be an unreliable indicator of actual answer quality. The technique can still help sometimes, but you should not rely on it.
 
 9. The best prompt structure:
 
@@ -56,11 +70,15 @@ Here is a list of practically effective prompting methods today that I regularly
 
    Sometimes it makes sense to change the order, especially if a note keeps being ignored.
 
+   _Update as of spring 2026:_ when you work through agents, prompt structuring mostly happens automatically through system prompts and built-in templates. This structure is still useful when you work directly with a model or on difficult non-typical tasks.
+
 10. Some things are faster to do manually. If you see the AI “stuck,” stop it and help by describing how you did it. Then it can continue and adapt.
 
 11. TDD works well with AI. You can state this explicitly in the planning task: first create empty contracts, then write tests, and only then write code. All these should be separate steps in the plan. This effectively gives another intermediate stage: text plan → contracts + tests → implementation. An extra stage is another chance for timely intervention and correction of drift, which grows catastrophically in LLMs.
 
 12. Ask to support decisions with links, for example for solutions based on facts about technologies or libraries, require links to those facts. Even if you do not read them, this can sometimes protect you from hallucinations.
+
+   _Update as of spring 2026:_ modern models often generate non-existing or inaccurate links, but the requirement to provide a source often forces the model to admit that it is not sure about a fact. If a link was provided, you still need to verify it manually.
 
 Many prompting rules that were critical for early LLMs are now either less important or already built into the models. Also, many AI tools apply system prompts and other settings under the hood automatically.
 

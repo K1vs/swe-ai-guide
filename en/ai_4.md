@@ -1,5 +1,7 @@
 # 4. From chat to agents: from miracles to practice
 
+_This article was updated for spring 2026. Updates and additions are in a separate section at the end._
+
 Although the time of miracles is over, the time of practical use has begun. In a few leaps, LLMs jumped into the zone of high practical usefulness and keep improving steadily. But for real results, a simple chat is usually not enough.
 
 There are fundamental limits that are far from fully solved: long‑term memory and context size. This is not only about compute resources but also mathematical complexity. Attention scales poorly, information gets diluted, and “context routing” (picking relevant information from a lot of data) becomes critical. The allowed context size is a compromise for each model. Simply increasing the window does not remove the problem; it only helps the model “not fall over.” Answer quality and speed degrade, cost grows, and errors accumulate.
@@ -41,6 +43,16 @@ Another example is fixing a flaky test (a test that sometimes fails for no clear
 The key strength of the agent here is in controlling tools, memory, and feedback loops that go beyond a single chat answer.
 
 I will cover agents in more detail in the next post.
+
+## Update for early spring 2026 (08.03.2026)
+
+The main ideas of this article not only stayed relevant, but became even more important in practice.
+
+_Update as of spring 2026:_
+
+1. One of the biggest practical jumps happened exactly in the area of agents. Both the number and the quality of tools grew a lot, and agent progress now plays a role comparable to progress in the models themselves.
+2. The move from chat to agents is now even more clearly a move from "answering a prompt" to "executing a process." In practice this means planning, tool use, checks, memory, context management, and iterative correction of the result.
+3. Multi-agent work became especially important: one agent can launch subordinate agents, sometimes even on other models, and coordinate their work. This is one of the most effective ways to fight context overflow and loss of focus on large tasks.
 
 ## Further reading
 

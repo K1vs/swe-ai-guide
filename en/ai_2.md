@@ -1,5 +1,7 @@
 # 2. Basic ideas of modern language models
 
+_This article was updated for spring 2026. Updates are marked with italic notes._
+
 ## Historical context and basic concepts
 
 Neural networks were created as a way to teach a machine to approximate complex dependencies in data. The simplest element - the perceptron - takes input features, weights them, adds a bias, and checks whether a threshold is crossed. A single perceptron gives only linear separation, but a multilayer perceptron (MLP) with nonlinearities can approximate almost any function.
@@ -34,11 +36,15 @@ In multi‑head attention, several heads work in parallel in different subspaces
 
 The key advantage of the transformer is full parallelization over tokens during training: we do not need to process the sequence step by step, we can compare everything with everything at once. This improves modeling of long‑range dependencies and opens the door to efficient scaling. Empirical scaling laws show that quality grows systematically as we increase parameters, data, and compute in the right proportions. In practice this is done through different forms of parallelism (data/model/pipeline/tensor), mixed precision (FP16/BF16 instead of 32‑bit for speed), optimizer sharding, and checkpointing. At the same time, careful data preparation and corpus balance are often no less important than extra FLOPs (floating‑point operations - a measure of compute power).
 
-The cost of self‑attention grows quadratically with context length: twice the window is roughly four times the compute and memory. Therefore, extending context needs engineering: relative positional encodings, caching/buffering, and sparse or local attention. In applied systems this is complemented by external knowledge search (RAG - Retrieval‑Augmented Generation) and caching so we do not push everything into the model at once.
+The cost of self-attention grows quadratically with context length: twice the window is roughly four times the compute and memory. Therefore, extending context needs engineering: relative positional encodings, caching/buffering, and sparse or local attention. This can be improved only partly with approximate algorithms, for example sliding-window or local attention, sparse attention in the style of Longformer or BigBird, and different variants of linear attention such as Performer. FlashAttention is also worth mentioning separately: it is not an approximate algorithm, but a very effective IO-aware way to compute exact attention with lower overhead on memory and memory access. But even that does not remove the core problem completely. All of these are only partial compromises, not a full solution. In applied systems this is complemented by external knowledge search (RAG - Retrieval-Augmented Generation) and caching so we do not push everything into the model at once.
+
+_Update as of spring 2026:_ this problem is still very serious. Models are still classic transformers without native STM and LTM, and they are still trying to compensate for that with context length, which is still hard to increase in a major way.
 
 ## Limitations and future directions
 
-Despite breakthrough abilities with language, LLMs have systemic limits. They are prone to “hallucinations” - confidently generating falsehoods in zones of uncertainty; they are sensitive to prompt wording; they lack built‑in fact‑checking. The most noticeable limitation is a lack of true long‑term memory: anything beyond the context window is lost, so the model does not “remember” the user or a long process in a strict sense. Cost and energy, bias, safety and privacy, and limited planning and reasoning without tools also matter.
+Despite breakthrough abilities with language, LLMs have systemic limits. They are prone to "hallucinations" - confidently generating falsehoods in zones of uncertainty; they are sensitive to prompt wording; they lack built-in fact-checking. The most noticeable limitation is a lack of true long-term memory: anything beyond the context window is lost, so the model does not "remember" the user or a long process in a strict sense.
+
+_Update as of spring 2026:_ at the model level, this remains almost unchanged: the problems caused by the lack of STM and LTM are still not solved, and bigger context alone did not become enough compensation. Cost and energy, bias, safety and privacy, and limited planning and reasoning without tools also matter.
 
 Promising directions include integration of external memory and knowledge indexes (RAG, personal stores), new attention schemes with lower complexity, compression and recurrent memory over long ranges, more reliable validation of statements (source checking, self‑assessment of confidence). Critically important is post‑deploy learning: safe loops for continual learning, online updates of knowledge, and guided RLHF in production. Integration with tools and agents is also growing actively, allowing the model to act in the world and not only generate text.
 

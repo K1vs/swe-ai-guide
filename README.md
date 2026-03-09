@@ -42,6 +42,8 @@ This series consists of 9 articles covering AI in software development:
 
 - **Update on models and capabilities (Nov 2025)** - [English](en/upd_ai_1.md) | [Українська](ukr/upd_ai_1.md)  
   Current state of models, quantitative improvements, and practical impact on development
+- **Update on AI automation state (Mar 2026)** - [English](en/upd_ai_2.md) | [Українська](ukr/upd_ai_2.md)  
+   Incremental update to the series: current state of AI automation, agents, context management, and enterprise adoption
 
 ## Warnings
 

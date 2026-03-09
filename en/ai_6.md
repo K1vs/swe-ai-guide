@@ -1,10 +1,14 @@
 # 6. Agent extensibility
 
+_This article was updated for spring 2026. Updates are marked with italic notes._
+
 Although modern agents include the most needed tools, more specialized tools are usually not available “out of the box.” For developers these can be integrations with ALM systems (Jira, Azure DevOps), design prototyping (Figma), API contract schemas, or databases. Since these integrations are often complex and vendors offer different capabilities, baking all of them directly into an agent is not practical. So even early generations of popular agents provided extension mechanisms that allowed adding separate modules with extra functionality.
 
 A typical and very useful example from practice is the PostgreSQL extension for VS Code with Copilot. It lets the agent run queries against PostgreSQL, quickly create seed or test data, check current data state, and draw useful conclusions. The advantage is that the extension is “perfectly fitted” to a specific client (editor/agent). The drawback is duplicated effort: maintaining separate extensions for each agent and each tool is very costly.
 
-This is a classic case for a “bridge” - a shared protocol understood by both agents and tools. In 2024, Anthropic proposed the Model Context Protocol (MCP) - a standard for exchanging commands, data, and context between an agent and external services. MCP defines roles and transport so that integrations can be reusable and portable across agents.
+This is a classic case for a "bridge" - a shared protocol understood by both agents and tools. In 2024, Anthropic proposed the Model Context Protocol (MCP) - a standard for exchanging commands, data, and context between an agent and external services. MCP defines roles and transport so that integrations can be reusable and portable across agents.
+
+_Update as of spring 2026:_ in early spring 2026 the importance of MCP became even higher. MCP servers already exist for almost everything that can be practically useful in development: ALM systems, repositories, documentation, design, databases, search, browser automation, and local tools. At the same time, the situation should not be idealized: the quality, support, and security of these servers are very uneven. The mere existence of an MCP server does not mean it is safe and convenient for real work.
 
 ## Roles in MCP: agent as client, tool as server
 
@@ -22,11 +26,14 @@ MCP supports several ways to connect:
 
 “Remote MCP” is also gaining momentum - deploying servers outside the local dev environment (in the cloud or internal infrastructure) that agents connect to over HTTP(S). This simplifies centralized access control, updates, and shared use of integrations by the whole team.
 
+At the same time, another important layer is becoming more or less standardized together with MCP: extending agents with so-called "skills." If MCP describes unified access to external tools, a skill usually packages ready behavior: a set of instructions, templates, rules for working with tools, and sometimes bundled MCP integrations. In practice this means agent extensibility is no longer only about calling an external API - more and more often it comes as reusable behavior modules.
+
 ## Useful examples of MCP servers
 
 - Atlassian Remote MCP (Jira, Confluence): practical value - quick enrichment of task context. If the description is spread across several Jira tickets and Confluence pages, the agent follows the links, gathers relevant fragments, builds a concise context, and uses it for planning or implementation. After finishing, the agent can update the ticket: set status, fill fields (for example, affected area), add links to MR/PR - the things developers often postpone.
 - GitHub MCP: useful for microservice architectures with separate repositories. The agent can automatically fetch the expected service contract (OpenAPI/Protobuf/GraphQL schema), compare versions, find breaking changes, and create a PR with client updates or compatibility tests.
 - Figma MCP: for frontend developers - a strong accelerator. The agent extracts specs from designs (sizes, styles, tokens), generates component/page skeletons, forms a checklist for layout, and compares implementation with the design.
+- Browser MCP (for example, chrome-mcp): especially useful for web development. Such a server lets the agent not only read code or designs, but also actually open application pages, check the result of its work in the browser, walk through user scenarios, inspect the DOM, console errors, and network requests, and use that for better iterations. This matters a lot when the goal is not only to write code, but to confirm that the UI really works as expected.
 
 The advantage for vendors like Atlassian is that they do not need a plugin for each agent or IDE. One MCP server is enough. In turn, agent authors do not need separate integrations with each ALM - they only need a stable MCP client.
 
@@ -55,6 +62,8 @@ Standardizing integrations raises the risk of wrong or excessive access. Key sec
 - Servers: clear contract (capabilities/tools/resources), stable response schemas, versioning. Pagination/limits for context control, transparent error model, idempotence for write operations. Authentication (OAuth/OIDC), observability (logs/tracing), prompt‑injection protection, and filtering of secrets/PII.
 - Clients (agents): discovery flow and feature gating, parameter validation before calls, timeouts/retries. Context budgeting, explicit confirmations for destructive actions, allowlists of tools/domains. Graceful degradation on outages, usage telemetry.
 - Important: in many modern products, you should plan and offer an MCP server to the customer at the design stage. This lets not only people but also LLM agents use the service - without separate plugins for each tool/IDE.
+
+_Update as of spring 2026:_ in early spring 2026 this should already be treated as a practical norm. If a tool or service may become part of an agent workflow, then having an MCP server or a compatible skill mechanism is more and more often not a nice bonus, but an expected property of a mature product.
 
 ## Summary
 

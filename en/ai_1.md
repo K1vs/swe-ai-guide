@@ -1,4 +1,6 @@
-# 1. AI - tool #2 right after the developer’s mind
+# 1. AI - tool #2 right after the developer's mind
+
+_This article was updated for spring 2026. Updates are marked with italic notes; outdated claims are shown with strikethrough._
 
 Modern AI in development is a jump beyond a “better IDE”: it adds speed, reduces routine to near zero, and raises quality by freeing human time that can be used for well‑known quality practices that never had time. Used correctly, AI does not replace thinking; it amplifies it, turning ideas into results much faster and more reliably.
 
@@ -7,7 +9,12 @@ Modern AI in development is a jump beyond a “better IDE”: it adds speed, red
 - **Accessibility**: getting started is very simple. You can proceed step by step, adding new AI use cases as needed and as you are ready. Start with tools you already use and install AI extensions for them.
 - **Context**: models can already hold enough context to complete a step of a typical decomposed task in a typical project.
 - **Quality**: under the supervision of a person who can manage task decomposition, verify and adjust the plan, AI can perform tasks with an acceptable level of quality.
-- **Speed**: some tasks, especially simple and typical ones, AI can do much faster than a person. AI can also quickly complete complex but very clearly described and bounded tasks that a person might spend a lot of time on. Even if the share of such tasks is small, AI reduces their duration by an order of magnitude, which noticeably increases overall development speed.
+- **Speed**:
+
+  _As of spring 2026:_ for almost any development task, it is already more profitable to involve AI than not to involve it. Sometimes the gain is small, sometimes it is very large, but the default strategy has changed: if a task can be given to AI safely and in a meaningful way, it is usually faster than doing it fully by hand.
+
+  _This was true in August 2025, but is outdated now:_
+  ~~some tasks, especially simple and typical ones, AI can do much faster than a person. AI can also quickly complete complex but very clearly described and bounded tasks that a person might spend a lot of time on. Even if the share of such tasks is small, AI reduces their duration by an order of magnitude, which noticeably increases overall development speed.~~
 - **Tools**: today AI is not just a bare model that can only chat, but a powerful tool that can do many tasks with minimal human involvement. This almost solves last years’ problem where explaining context to AI and applying the result took longer than doing the task yourself.
 
 ## Where and how can you start using AI in development today?
@@ -55,6 +62,15 @@ Result: scaling best practices without manual routine and standardization of sty
 
 Result: faster testing and problem diagnostics.
 
+### 6) Almost any task with a clear specification
+
+- **Detailed description**: if you have a clear and detailed enough task description, AI can already do not only separate typical subtasks, but almost any kind of development work.
+- **Decomposition**: the key condition is proper decomposition. One task atom must be small enough to fully fit into the model's working context together with the needed artifacts.
+- **Context control**: the better the task boundary, the fewer assumptions the model makes, and the higher the speed and reliability of its work.
+- **Natural consequence**: this leads directly to the SDD approach, where specification, decomposition, and control of task atoms become the central part of the process. More about this is explained in [ai_8.md](ai_8.md).
+
+Result: AI can be used effectively not only for separate "convenient" scenarios, but for almost any task if it is described well enough and decomposed correctly.
+
 ## The importance of AI in development
 
 Today, starting to use AI in development is more important than the switch from a plain text editor to an IDE was a decade ago.
@@ -92,7 +108,10 @@ Together: TDD makes requirements clearer for AI, and AI removes the cost barrier
 
 - Overloaded “do everything at once” prompts. Better: small, sequential tasks with clear artifacts at each step.
 - Unclear names and no contracts. Introduce a glossary and fix interfaces before code generation.
-- Using LLMs for complex, non‑typical tasks with fuzzy requirements - the result will be unclear with wasted time and tokens.
+- _As of spring 2026:_ for complex and non-typical tasks, you should first prepare a detailed specification and decomposition. Trying to solve such a task directly through an AI agent without this preparation usually only wastes time and tokens.
+
+  _This was true in August 2025, but is outdated now:_
+  ~~Using LLMs for complex, non-typical tasks with fuzzy requirements - the result will be unclear with wasted time and tokens.~~
 
 ## In closing
 

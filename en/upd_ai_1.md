@@ -1,5 +1,7 @@
 # Update on Models and Capabilities as of End of 2025 (November 26, 2025)
 
+_This is a one-time snapshot of the state at publication time (November 2025). This text is not updated; the current state is reflected in the main articles of the series, which receive regular updates._
+
 In general, my predictions and expectations regarding models and their capabilities have not changed significantly. As I said before, the capabilities of the transformer architecture are almost exhausted, and now we only see quantitative improvements. Such quantitative improvements do not change the approaches to using AI in development described by me in previous articles, but significantly increase the performance gain and comfort from their use. If back in the summer, even those tasks that AI solves well were not always profitable to entrust to it due to unreliability and slow speed, now entrusting a suitable task to AI almost always brings more benefits than losses. The idea that AI is the main tool of a developer has now been fully confirmed (but one should not forget about the rest of the tools).
 
 ## Models
@@ -45,4 +47,4 @@ Purely console tools tailored to the models of their vendor. They are the first 
 
 IDE based on VS Code, with great agent capabilities. A novelty from Google, suitable for development with different levels of agent autonomy. So far only a preview, but it looks very similar to Cursor in its current form both in idea and capabilities. If Google can ensure better support for plugins for VS Code, develop its own or agree with Microsoft, then this can become a very interesting option for development. For now, we are observing and playing, it is too early for real projects.
 
-*And finally, let's not forget that although AI is growing very well quantitatively, qualitatively it is standing still for now. Therefore, despite all the hype and marketing, do not forget about the rest of the developer's tools, and most importantly about the developer's mind and skills!.*
+_And finally, let's not forget that although AI is growing very well quantitatively, qualitatively it is still standing in place for now. So despite all the hype and marketing, do not forget the rest of the developer's tools, and most importantly the developer's own mind and skills!_
